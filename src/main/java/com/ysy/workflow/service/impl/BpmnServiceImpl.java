@@ -2,8 +2,11 @@ package com.ysy.workflow.service.impl;
 
 import com.ysy.workflow.service.BpmnService;
 import lombok.extern.slf4j.Slf4j;
+import org.flowable.bpmn.model.BpmnModel;
 import org.flowable.engine.RepositoryService;
 import org.flowable.engine.RuntimeService;
+import org.flowable.ui.modeler.domain.Model;
+import org.flowable.ui.modeler.serviceapi.ModelService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -31,13 +34,18 @@ public class BpmnServiceImpl implements BpmnService {
     @Resource
     private RuntimeService runtimeService;
 
+    @Resource
+    private ModelService modelService;
+
     /**
      * 1、生成对应BPMN.xml文件
      * @param values values
      */
     @Override
     public void insert(List<Map<Integer, String>> values) {
-
+        Model model = modelService.getModel("1");
+        BpmnModel bpmnModel = modelService.getBpmnModel(model);
+        byte[] xmlBytes = modelService.getBpmnXML(bpmnModel);
 
 
     }
