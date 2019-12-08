@@ -114,36 +114,36 @@ public class BpmnXmlUtil {
     public static void main(String[] args) {
         Map<Integer, String> mapProcess = new LinkedHashMap<>();
         Map<Integer, Map<Integer, String>> elementCode = new LinkedHashMap<>();
-        mapProcess.put(1,"htTongProcess");
-        mapProcess.put(2,"htTong Process");
-        mapProcess.put(3,"true");
+        mapProcess.put(1, "htTongProcess");
+        mapProcess.put(2, "htTong Process");
+        mapProcess.put(3, "true");
 
-        Map<Integer,String> mapNei01 = new LinkedHashMap<>();
-        mapNei01.put(1,"usertask1");
-        mapNei01.put(2,"费用申请报销");
-        elementCode.put(1095,mapNei01);
+        Map<Integer, String> mapNei01 = new LinkedHashMap<>();
+        mapNei01.put(1, "usertask1");
+        mapNei01.put(2, "费用申请报销");
+        elementCode.put(1095, mapNei01);
 
-        Map<Integer,String> mapNei02 = new LinkedHashMap<>();
-        mapNei02.put(1,"exclusivegateway1");
-        mapNei02.put(2,"Exclusive Gateway");
-        mapNei02.put(5,"flow3");
-        elementCode.put(1150,mapNei02);
+        Map<Integer, String> mapNei02 = new LinkedHashMap<>();
+        mapNei02.put(1, "exclusivegateway1");
+        mapNei02.put(2, "Exclusive Gateway");
+        mapNei02.put(5, "flow3");
+        elementCode.put(1150, mapNei02);
         //mapStart 写死
         Map<Integer, String> mapStart = new LinkedHashMap<>();//--------start部分
-        mapStart.put(1,"startevent1");
-        mapStart.put(2,"开始");
+        mapStart.put(1, "startevent1");
+        mapStart.put(2, "开始");
         //mapEnd写死
         Map<Integer, String> mapEnd = new LinkedHashMap<>();//--------start部分
-        mapEnd.put(1,"endevent1");
-        mapEnd.put(2,"结束");
-        Element eleRoot =  BpmnXmlUtil.getBpmnXmlRoot();
-        Element eP = BpmnXmlUtil.bpmnXmlBeforeStartEvent(eleRoot,mapProcess,mapStart);
+        mapEnd.put(1, "endevent1");
+        mapEnd.put(2, "结束");
+        Element eleRoot = BpmnXmlUtil.getBpmnXmlRoot();
+        Element eP = BpmnXmlUtil.bpmnXmlBeforeStartEvent(eleRoot, mapProcess, mapStart);
         for (Integer key : elementCode.keySet()) {
             Element eleOrig2 = BpmnXmlUtil.bpmnAnalysis(key, elementCode.get(key));
             eP.addChild(eleOrig2);
         }
 
-        Element endElement = BpmnXmlUtil.bpmnAnalysis(1156,mapEnd);
+        Element endElement = BpmnXmlUtil.bpmnAnalysis(1156, mapEnd);
         eP.addChild(endElement);
         System.out.println((XmlUtil.elementToXml(eleRoot)));
     }
