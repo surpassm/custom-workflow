@@ -72,6 +72,8 @@ public class BpmnXmlUtil {
                 //可写默认处理器xxservice
                 elementOrig.addProperty(BpmnProcessKey.ACTIVITIEXPRESSION.getValue(), map.get(BpmnProcessKey.ACTIVITIEXPRESSION.getCode()));
                 break;
+            default:
+                break;
         }
         return elementOrig;
     }
