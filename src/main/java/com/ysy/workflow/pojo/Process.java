@@ -15,7 +15,7 @@ import javax.validation.constraints.Min;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "act_process", uniqueConstraints = {@UniqueConstraint(name = "process_unique", columnNames = {"unique_id"})})
+@Table(name = "act_process", uniqueConstraints = {@UniqueConstraint(name = "process_unique", columnNames = {"uniqueId"})})
 @org.hibernate.annotations.Table(appliesTo = "act_process", comment = "流程表")
 public class Process {
 

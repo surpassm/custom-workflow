@@ -133,7 +133,6 @@
             <artifactId>flowable-dmn-json-converter</artifactId>
             <version>${flowable.version}</version>
         </dependency>
-        <!--  -->
     </dependencies>
 
     <build>
