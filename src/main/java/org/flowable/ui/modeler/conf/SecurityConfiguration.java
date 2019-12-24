@@ -10,7 +10,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.flowable.ui.conf;
+package org.flowable.ui.modeler.conf;
 
 import org.flowable.ui.common.properties.FlowableRestAppProperties;
 import org.flowable.ui.common.security.ActuatorRequestMatcher;
@@ -46,7 +46,7 @@ import org.springframework.security.web.header.writers.XXssProtectionHeaderWrite
 @EnableWebSecurity
 public class SecurityConfiguration {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(org.flowable.ui.modeler.conf.SecurityConfiguration.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityConfiguration.class);
 
     public static final String REST_ENDPOINTS_PREFIX = "/app/rest";
 
