@@ -3,8 +3,6 @@ package com.ysy.workflow.service.impl;
 import com.ysy.workflow.service.BpmnService;
 import lombok.extern.slf4j.Slf4j;
 import org.flowable.bpmn.model.BpmnModel;
-import org.flowable.engine.RepositoryService;
-import org.flowable.engine.RuntimeService;
 import org.flowable.ui.modeler.domain.Model;
 import org.flowable.ui.modeler.serviceapi.ModelService;
 import org.springframework.stereotype.Service;
@@ -22,21 +20,8 @@ import java.util.Map;
 @Transactional(rollbackFor = {RuntimeException.class, Exception.class})
 public class BpmnServiceImpl implements BpmnService {
 
-    /**
-     * 部署流程定义
-     */
-    @Resource
-    private RepositoryService repositoryService;
-
-    /**
-     * 启动流程实例
-     */
-    @Resource
-    private RuntimeService runtimeService;
-
     @Resource
     private ModelService modelService;
-
     /**
      * 1、生成对应BPMN.xml文件
      * @param values values
